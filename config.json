@@ -4,5 +4,5 @@
   "requested_date": "20261217",
   "venue_codes": ["PCAN", "RAKK", "INTO"],
   "venue_label": "Multiple Chennai Theatres",
-  "url_template": "https://in.bookmyshow.com/movies/chennai/avengers-doomsday/buytickets/ET00526287/{date}"
+  "url_template": "https://in.bookmyshow.com/movies/chennai/avengers-doomsday/buytickets/ET00526306/{date}?etCodes=*&language=english&refEventCode=ET00526306"
 }
