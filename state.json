@@ -1,4 +1,10 @@
 {
-  "available": false,
-  "checked_at": 1795110649
+  "doomsday": {
+    "available": false,
+    "checked_at": 1795110649
+  },
+  "dune_part_three": {
+    "available": false,
+    "checked_at": null
+  }
 }
