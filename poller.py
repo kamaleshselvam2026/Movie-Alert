@@ -327,14 +327,25 @@ def build_alert_message(cfg):
     )
 
 
+
 def main():
     monitors = load_monitors()
     states = load_states(monitors)
+
+    # Initialize and persist a separate state for every movie.
     changed = False
+    for cfg in monitors:
+        monitor_id = cfg["id"]
+        if monitor_id not in states:
+            states[monitor_id] = {
+                "available": False,
+                "checked_at": None,
+            }
+            changed = True
 
     for cfg in monitors:
         monitor_id = cfg["id"]
-        state = states.get(monitor_id, {"available": False})
+        state = states[monitor_id]
         label = (
             f"{cfg.get('movie', monitor_id)} @ "
             f"{cfg.get('venue_label') or cfg.get('venue_code') or cfg.get('requested_date', 'target')}"
@@ -359,19 +370,17 @@ def main():
                 )
                 print(f"[{label}] notification sent")
             except requests.RequestException as exc:
-                # Do not mark it available if Telegram failed; the next poll
-                # can retry the alert.
                 print(f"[{label}] Telegram notification failed: {exc}")
                 continue
 
         if available != was_available:
             state["available"] = available
             state["checked_at"] = int(time.time())
-            states[monitor_id] = state
             changed = True
 
     if changed:
         save_json(STATE_PATH, states)
+        print("State file updated.")
     else:
         print("No state change.")
 
