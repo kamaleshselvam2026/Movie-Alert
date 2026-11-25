@@ -10,15 +10,6 @@
       ],
       "venue_label": "Multiple Chennai Theatres",
       "url_template": "https://in.bookmyshow.com/movies/chennai/avengers-doomsday/buytickets/ET00526306/{date}?etCodes=*&language=english&refEventCode=ET00526306"
-    },
-    {
-      "id": "dune_part_three",
-      "detector": "venue_date",
-      "movie": "Dune: Part Three",
-      "requested_date": "20261218",
-      "venue_code": "PVPZ",
-      "venue_label": "PVR Palazzo, Chennai",
-      "url_template": "https://in.bookmyshow.com/movies/chennai/dune-part-three/buytickets/ET00491771/{date}?etCodes=*&language=english&refEventCode=ET00491771"
     }
   ]
 }
